@@ -1,0 +1,186 @@
+/* Styles used on the home page. */
+
+/* Container in which all charts are displayed */
+.chart-display {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+}
+
+/* Container for each chart */
+.chart-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 15vw;
+  height: 15vw;
+  margin: 0 auto; /* this centers the chart horizontally */
+}
+
+/* Size of canvas where the chart is shown */
+.canvas {
+  width: 100%;
+  height: 100%;
+}
+
+/* Style for percentage daily progress INSIDE progress wheel */
+.percentage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+}
+
+.chart-container canvas {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* Label for each chart */
+.macro-count {
+  text-align: center;
+  margin-top: 15px; /* Adjust as needed for spacing */
+}
+
+#insert_form {
+  width: 100%;
+}
+
+.chart-elem {
+  width: 20vw;
+  height: auto;
+}
+/* Base styles */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+  
+/* Arrow styles */
+.the-arrow {
+  transition: all 0.2s;
+}
+  
+.the-arrow.-left {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+  
+.the-arrow > .shaft {
+  background-color: #4c4c4c; /* Black */
+  display: block;
+  width: 1px; /* Initial width of the shaft */
+  height: 1px; /* Shaft thickness */
+  position: relative;
+  transition: all 0.2s;
+}
+  
+.the-arrow > .shaft:before,
+.the-arrow > .shaft:after {
+  background-color: #4c4c4c; /* Black */
+  content: '';
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 0; /* Initial arrow head width */
+  height: 1px; /* Arrow head thickness */
+  transition: all 0.2s;
+}
+  
+.the-arrow > .shaft:before {
+  transform: rotate(0);
+  transform-origin: top right;
+}
+  
+.the-arrow > .shaft:after {
+  transform: rotate(0);
+  transform-origin: bottom right;
+}
+
+/* Animated arrow button styles */
+.animated-arrow {
+  display: inline-block;
+  color: #4c4c4c; /* Black */
+  font-size: 1.75em;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.2s;
+}
+
+.animated-arrow:hover {
+  color: #808080; /* Gray */
+}
+
+.animated-arrow:hover > .the-arrow.-left > .shaft {
+  width: 64px; /* Expanded shaft width */
+}
+
+.animated-arrow:hover > .the-arrow.-left > .shaft:before,
+.animated-arrow:hover > .the-arrow.-left > .shaft:after {
+  width: 8px; /* Arrow head width */
+  background-color: #808080; /* Gray */
+}
+
+.animated-arrow:hover > .the-arrow.-left > .shaft:before {
+  transform: rotate(45deg);
+}
+
+.animated-arrow:hover > .the-arrow.-left > .shaft:after {
+  transform: rotate(-45deg);
+}
+
+.animated-arrow:hover > .main {
+  transform: translateX(64px); /* Move text to the right */
+}
+
+.animated-arrow > .main {
+  display: flex;
+  align-items: center;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.animated-arrow > .main > .text {
+  margin-left: 8px;
+  line-height: 1;
+}
+
+/* Mobile optimization */
+@media screen and (max-width: 912px) {
+  .chart-elem {
+      width: 100vw;
+      height: auto;
+      margin-bottom: 100px;
+  }
+  .chart-display {
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+  }
+  .chart-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 250px; /* or whatever size you want */
+      height: 250px; /* should be same as width for a circle */
+      /* margin: 0 auto; */
+  }
+
+  .animated-arrow {
+    font-size: 1.25em;
+  }
+
+  #exampleModal {
+		width: 100vw;
+	}
+}

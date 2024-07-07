@@ -1,0 +1,89 @@
+/* Style for Get Summary page, where you see stats for entered meal */
+
+:root {
+    --trans-all: all 0.5s ease;
+}
+
+body {
+    background: white;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    padding: 0 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.info-out {
+    margin: 30px;
+    padding: 50px;
+}
+
+form {
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+form div, form label, form input, form textarea {
+    width: 100%;
+}
+
+.field {
+    margin-bottom: 16px; /* Consistent margin for all fields */
+}
+
+label, input, textarea {
+    padding: 8px;
+}
+
+label, [placeholder] {
+    color: #555;
+}
+
+label i {
+    margin: 0 10px 0 0;
+}
+
+.field:focus-within label {
+    color: #000;
+}
+
+input, textarea {
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    border-radius: 4px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input:focus, textarea:focus {
+    background: rgba(255, 255, 255, 1);
+    box-shadow: none;
+}
+
+textarea {
+    resize: none;
+}
+
+textarea::-webkit-scrollbar {
+    width: 0;
+}
+
+/* Mobile optimization */
+@media (max-width: 912px) {
+    form {
+        width: 100%;
+        display: flex;
+    }
+
+    .info-out {
+        margin-top: 80px;
+        padding: 0;
+    }
+}

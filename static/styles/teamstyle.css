@@ -1,0 +1,76 @@
+/* Styles for About page */
+
+/* Centers and spaces out profile cards. */
+.profile-box {
+	width: 100%;
+	max-width: 1300px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	text-align: center;
+	margin-top: 1.5rem;
+}
+
+/* Styles for team images. */
+.profile-box img{
+	width: 100%;
+	height: auto;
+	border-radius: 70px;
+	margin-bottom: 15px;
+}
+
+/* Element that contains each of our profiles. */
+.box {
+	padding: 16px;
+	background: #107859;
+	border-radius: 70px;
+	transition: all .38s ease;
+}
+
+.box:hover{
+	transform: translateY(-10px);
+}
+
+/* Width of the element */
+.box-w {
+	width: 30%;
+}
+
+/* Style of name */
+.box h3 {
+	color: #fff;
+	margin-bottom: 8px;
+}
+
+/* Style for 'Student' */
+.box h6 {
+	color: #b7b4bb;
+	margin-bottom: 10px;
+	letter-spacing: 2px;
+}
+
+/* Styles for the LinkedIn icons */
+.icons i{
+	display: inline-block;
+	color: #fff;
+	font-size: 20px;
+	margin: 0 8px;
+	transition: all .38s ease;
+}
+.icons i:hover{
+	transform: scale(1.2);
+}
+
+/* Code for mobile optimization */
+@media screen and (max-width: 912px) {
+	.box-w {
+		width: 80%;
+		margin-bottom: 1rem;
+	}
+
+	.profile-box {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+	}
+}

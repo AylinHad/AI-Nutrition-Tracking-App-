@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>
+            TigerMunch
+        </title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="{{ url_for('static',filename='styles/univstyle.css') }}">
+    </head>
+    <body>
+        {% include 'header_loggedout.html' %}
+        <main>
+            <div class="mt-5 pt-5 center-content-pg">
+                <div class="m-3">
+                    <h1 >Welcome to TigerMunch</h1>
+                </div>
+                <div class="mt-2 mb-3 p-3">
+                    <h3>Begin your fitness journey and track your nutritional intake by logging in</h3>
+                    <p class="fs-5">Simply upload a photo/description of your meal!</p>
+                </div>
+                <div class="mb-5">
+                    <button class="btn btn-success btn-lg" type = "button" data-bs-toggle="modal" data-backdrop="static" data-bs-keyboard="false" data-bs-target="#Disclaimer">Log In</button></li>
+                </div>
+            </div>
+        </main>
+    </body>
+
+    <!-- Terms of Services modal -->
+    <div class="modal fade" id="Disclaimer" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title">Terms of Service</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="disclaimer" >
+                        <p>
+                            This application utilises the GPT-4 API to render its estimates. 
+                            TigerMunch does not seek to serve users with specific dietary restrictions that 
+                            require a level of precision that we cannot provide through the GPT-4 API.
+                            The information we provide is approximate, and is intended to help users 
+                            to track their daily food intake with ease, in situations where estimates 
+                            are good enough. 
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <a class="btn btn-success" href="{{ login_url }}">Accept</a>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+</html>

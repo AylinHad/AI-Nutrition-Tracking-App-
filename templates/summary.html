@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>
+            TigerMunch: Your Nutritional Trends
+        </title>
+        <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+        <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.dataTables.min.css">
+        <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <link rel="stylesheet" href="{{ url_for('static',filename='styles/summarystyle.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='styles/univstyle.css') }}">
+    </head>
+    <body>
+        {% include 'header.html' %}
+        <main>
+            <div class="center-content-pg position-charts">
+                <h1 class="pt-3">Your Nutrition Trends</h1>
+
+                <!--Range of time for which you want to view the graphs-->
+                <div class="data-range-selector">
+                    <input type="radio" id="sevenDays" name="dataRange" value="7" checked>
+                    <label for="sevenDays">Past 7 Days</label>
+                
+                    <input type="radio" id="thirtyDays" name="dataRange" value="30">
+                    <label for="thirtyDays">Past 30 Days</label>
+                
+                    <input type="radio" id="allData" name="dataRange" value="90">
+                    <label for="allData">Past 90 Days</label>
+                </div>
+
+                <!--Display graph for calories / macros-->
+                <div class="data-selection">
+                    <input type="radio" id="caloriesChoice" name="dataChoice" value="Calories" checked>
+                    <label for="caloriesChoice">Calories</label>
+                
+                    <input type="radio" id="macrosChoice" name="dataChoice" value="Macros">
+                    <label for="macrosChoice">Macros</label>
+                </div>
+                
+                <!-- Checkboxes for Macros, hidden by default -->
+                <div id="macroSelection" style="display:none;">
+                    <input type="checkbox" id="toggleFat" name="macro" value="Fat" checked>
+                    <label for="toggleFat">Fat (in g)</label>
+                
+                    <input type="checkbox" id="toggleProtein" name="macro" value="Protein" checked>
+                    <label for="toggleProtein">Protein (in g)</label>
+                
+                    <input type="checkbox" id="toggleCarbs" name="macro" value="Carbs" checked>
+                    <label for="toggleCarbs">Carbs (in g)</label>
+                </div>
+                
+                <br>
+                
+                <!--Actual summary graph-->
+                <div class="chart-container">
+                    <canvas id="summaryChart"></canvas>
+                </div>
+                <br>
+                
+                <!--Table showing past meal data.-->
+                <h1>Daily Nutrition Snapshot</h1>
+                <div class="table-container">
+                    <div class="table-responsive dt-responsive">
+                        <table border="1" class="hover" id="myTable">
+                            <thead id="table-head">
+                                <tr>
+                                    <th scope="col">Year</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Calories</th>
+                                    <th scope="col">Fat (in g)</th>
+                                    <th scope="col">Protein (in g)</th>
+                                    <th scope="col">Carbs (in g)</th>
+                                </tr>
+                            </thead>
+                                <tbody id="table-body">
+                            </tbody>
+                        </table>
+
+                        <!--Button to see more meal data. Initially displays only 10.-->
+                        <div class="m-3" id="show-more-button">
+                            <button class="btn btn-success" onclick="loadMore()">Show more</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script src="{{ url_for('static', filename='scripts/render_summary.js') }}"></script>   
+    </body>
+</html>
