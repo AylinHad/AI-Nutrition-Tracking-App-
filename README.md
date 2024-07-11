@@ -1,11 +1,5 @@
 # AI NUTRITION TRACKING APP
 
-Welcome to TigerMunch, a transformative web application that revolutionizes nutrition tracking! With TigerMunch, users can simply upload a photo and/or description of their meal. This data is then processed by GPT-4, which estimates the caloric and macronutrient content of each meal.
-
-TigerMunch enables users to monitor their daily nutritional intake against their personalized goals and view their nutritional trends over time through intuitive charts and graphs. Dive into a smarter way to track your nutrition with TigerMunch!
-
-You must install certain packages into your cos333 virtual environment using the following commands:
-
 macOS
 1. ```python -m pip install requests```
 2. ```python -m pip install Pillow```
